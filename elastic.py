@@ -11,7 +11,8 @@ def get_elastic(vel1, mass1, vel2, mass2):
 
     vel1f = ratio1 * vel1 + ratio3 * vel2
     vel2f = ratio2 * vel1 + ratio1 * vel2
-
+    
+    print(f'masses: {mass1},{mass2}')
     print(f'before: v1={vel1} v2={vel2}')
     print(f'after: v1={vel1f} v2={vel2f}')
 
