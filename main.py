@@ -1,5 +1,6 @@
 import pygame
 from pygame.locals import *
+from src.scripts.collision import get_elastic, Object, ObjectHandler
 
 pygame.init()
 
@@ -12,9 +13,19 @@ class App():
         
         self.clock = pygame.time.Clock()
 
+        self.objects = []
+        self.objects.append(Object(3, -5, [450, 100], ScreenSize))
+        self.objects.append(Object(5, 5, [0, 100], ScreenSize))
+
+        self.ObjectHandler = ObjectHandler(self.objects)
+
     def loop(self):
+        screen = self.screen
         while True:
-            self.screen.fill((255, 255, 255))
+            screen.fill((255, 255, 255))
+
+            self.ObjectHandler.update(screen)
+            
 
             for event in pygame.event.get():
                 if event.type == QUIT:
