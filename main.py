@@ -25,7 +25,6 @@ class App():
             screen.fill((255, 255, 255))
 
             self.ObjectHandler.update(screen)
-            
 
             for event in pygame.event.get():
                 if event.type == QUIT:

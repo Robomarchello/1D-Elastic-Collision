@@ -34,6 +34,7 @@ class Object():
         self.ScreenSize = ScreenSize
         
     def collision_resolve(self, other:'Object'):
+        #collision is pretty bad:(
         if self.rect.colliderect(other.rect):
             afterVelocities = get_elastic(self.velocity, self.mass, other.velocity, other.mass)
             self.velocity = afterVelocities[0]
@@ -42,9 +43,6 @@ class Object():
             while self.rect.colliderect(other.rect):
                 self.update()
                 other.update()
-
-        #and now collision between objects is resolved😜
-
 
     def update(self):
         self.position[0] += self.velocity
